@@ -1,5 +1,5 @@
-require 'rspec'
-require 'pry'
+# require 'rspec'
+# require 'pry'
 require './lib/nytimes'
 
 class Nytimes
