@@ -24,16 +24,17 @@ class Nytimes
 
     it 'can get array of stories' do 
       #Using @hash, define a variable called `result` that returns the array of stories
-      # result = @hash[:num_results]
       result = @hash[:results]
       # require 'pry'; binding.pry
       expect(result).to be_an_instance_of(Array)
       expect(result.count).to eq(44)
     end
 
-    xit 'can get all stories with subsection of politics' do 
+    it 'can get all stories with subsection of politics' do 
       #Using @hash, define a variable called `result` that returns all stories with subsection of politics.
-  
+      result = @hash.dig(:results)&.select { |item| item[:subsection] == "Politics" }
+
+      # require 'pry'; binding.pry
       expect(result).to be_an_instance_of(Array)
       expect(result.count).to eq(6)
       expect(result.first[:title]).to eq("Congressional G.O.P. Agenda Quietly Falls Into Place Even as Trump Steals the Spotlight")
